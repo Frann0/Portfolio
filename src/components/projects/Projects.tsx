@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import type { ProjectCardProps } from "../../models/ProjectCard"
 import ProjectCard from "../projectCard/ProjectCard"
 import './Projects.scss'
@@ -36,9 +37,40 @@ const Projects = () => {
     }
   ] as ProjectCardProps[]
 
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      if (window.innerWidth <= 768) {
+        setIsMobile(true)
+      } else {
+        setIsMobile(false)
+      }
+
+      console.log(window.innerWidth <= 768)
+    })
+
+    return () => {
+      window.removeEventListener('resize', () => {
+        setIsMobile(false)
+      })
+    }
+  }, [])
+
+  const transformProjects = () => {
+    return projects.map((project, index) => {
+      return {
+        ProjectCard: {
+          ...project.ProjectCard,
+          imageLeftSide: isMobile ? true : project.ProjectCard.imageLeftSide
+        }
+      }
+    })
+  }
+
   return (
     <div className="Projects">
-      {projects.map((project, index) => (
+      {transformProjects().map((project, index) => (
         <div className="Projects_Card" key={index}>
           <ProjectCard ProjectCard={project.ProjectCard} key={index} />
           <div className="Projects_Card_Divider"></div>
