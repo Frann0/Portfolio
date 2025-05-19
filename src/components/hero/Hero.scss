@@ -1,43 +1,108 @@
 @import '../../Shared.scss';
 
-.Hero{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: calc(100vh - 200px);
-  gap: 20px;
-  z-index: 1;
-  width: 100%;
-
-  &_Header{
+/**
+*
+* MOBILE
+*
+*/
+@media screen and (max-width: 768px){
+  .Hero{
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    width: fit-content;
+    justify-content: center;
+    height: calc(100vh - 200px);
+    gap: 20px;
+    z-index: 1;
+    width: 100%;
+    overflow: hidden;
 
-    &_Title{
-      @include textGradient($Purple, $Light-purple);
-      font-size: 36px;
-      font-weight: 700;
-      margin: 0;
-      padding: 0;
+    &_Header{
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: fit-content;
+
+      &_Title{
+        @include textGradient($Purple, $Light-purple);
+        font-size: 24px;
+        font-weight: 700;
+        margin: 0;
+        padding: 0;
+      }
+
+      &_Subtitle{
+        @include textGradient($Purple, $Light-purple);
+        font-size: 14px;
+      }
+
+      &_Divider{
+        height: 1px;
+        background: $Divider-gradient;
+      }
+
     }
 
-    &_Subtitle{
-      @include textGradient($Purple, $Light-purple);
-      font-size: 14px;
-    }
+    &_Buttons{
+      display: flex;
+      flex-direction:column;
+      align-items: center;
+      gap: 10px;
 
-    &_Divider{
-      height: 1px;
-      background: $Divider-gradient;
+      .Button{
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
+      }
     }
-
   }
+}
 
-  &_Buttons{
+
+/**
+*
+* DESKTOP
+*
+*/
+@media screen and (min-width: 768px){
+  .Hero{
     display: flex;
-    flex-direction: row;
-    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100vh - 200px);
+    gap: 20px;
+    z-index: 1;
+    width: 100%;
+
+    &_Header{
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: fit-content;
+
+      &_Title{
+        @include textGradient($Purple, $Light-purple);
+        font-size: 36px;
+        font-weight: 700;
+        margin: 0;
+        padding: 0;
+      }
+
+      &_Subtitle{
+        @include textGradient($Purple, $Light-purple);
+        font-size: 14px;
+      }
+
+      &_Divider{
+        height: 1px;
+        background: $Divider-gradient;
+      }
+
+    }
+
+    &_Buttons{
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
   }
 }
