@@ -37,7 +37,7 @@ const Projects = () => {
     }
   ] as ProjectCardProps[]
 
-  const [isMobile, setIsMobile] = useState(false)
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
 
   useEffect(() => {
     window.addEventListener('resize', () => {
@@ -47,7 +47,6 @@ const Projects = () => {
         setIsMobile(false)
       }
 
-      console.log(window.innerWidth <= 768)
     })
 
     return () => {
