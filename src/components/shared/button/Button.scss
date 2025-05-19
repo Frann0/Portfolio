@@ -1,0 +1,36 @@
+@import '../../../Shared.scss';
+
+.Button{
+  background: $Input-background;
+  border-radius: 5px;
+  border: 1px solid $White-25;
+  width: fit-content;
+  max-width: 200px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 10px;
+  flex-direction: row;
+  transition: all 0.3s ease-in-out;
+  min-width: 120px;
+  backdrop-filter: blur(10px); 
+
+  &:hover{
+    border: 1px solid $White-50;
+  }
+
+
+  &_Icon{
+    width: 24px;
+    aspect-ratio: 1/1;
+  }
+
+  &_Text{
+    color: $White;
+    text-transform: uppercase;
+  }
+}

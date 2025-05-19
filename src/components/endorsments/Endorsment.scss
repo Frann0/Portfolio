@@ -1,0 +1,31 @@
+@import '../../Shared.scss';
+
+.Endorsment{
+  height: 75px;
+  min-height: 75px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 30px;
+  box-sizing: border-box;
+  gap: 50px;
+  display:flex;
+  flex-direction: row;
+  border: 1px solid $Light-purple-10;
+  background: $Input-background;
+  border-radius: 5px;
+  overflow-x: auto;
+  z-index: 1;
+  
+
+  &_Company{
+    filter: $Unsaturated;
+    transition: all 0.3s ease-in-out;
+    height: 50px;
+    aspect-ratio: auto;
+
+    &:hover{
+      filter: $Saturated;
+    }
+  }
+}
