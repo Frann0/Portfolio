@@ -68,7 +68,7 @@ const Projects = () => {
   }
 
   return (
-    <div className="Projects">
+    <div className="Projects" id="Projects">
       {transformProjects().map((project, index) => (
         <div className="Projects_Card" key={index}>
           <ProjectCard ProjectCard={project.ProjectCard} key={index} />
