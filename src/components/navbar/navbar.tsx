@@ -11,23 +11,24 @@ const Navbar = () => {
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = (scrollTop / docHeight) * 100;
       setScrollProgress(progress);
+      console.log(progress);
     };
 
-    window.addEventListener('resize', () => {
-      if (window.innerWidth <= 768) {
-        setIsMobile(true)
-      } else {
-        setIsMobile(false)
-      }
-    })
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
 
-    window.addEventListener("scroll", updateScrollProgress);
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', updateScrollProgress);
+
+    // Initial checks
+    handleResize();
+    updateScrollProgress();
+
     return () => {
-      window.removeEventListener('resize', () => {
-        setIsMobile(false)
-      });
-      window.removeEventListener("scroll", updateScrollProgress);
-    }
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', updateScrollProgress);
+    };
   }, []);
 
   return (
@@ -51,7 +52,6 @@ const Navbar = () => {
               </a>
             </div>
           </nav>
-          <div className="Navbar_Progress" style={{ width: `${scrollProgress}%` }}></div>
         </>
       )}
       {isMobile && (
@@ -60,13 +60,11 @@ const Navbar = () => {
             <div className="navbar_logo">
               <img src="icons/Planet.svg" className="navbar_logo_icon" alt="Logo" />
             </div>
-
           </nav>
-          <div className="Navbar_Progress" style={{ width: `${scrollProgress}%` }}></div>
         </>
-
-
       )}
+
+      <div className="Navbar_Progress" style={{ width: `${scrollProgress}%` }}></div>
     </>
   )
 }
