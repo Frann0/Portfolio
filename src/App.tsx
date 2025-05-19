@@ -10,6 +10,7 @@ import About from './components/about/About'
 import ProjectCard from './components/projectCard/ProjectCard'
 import Projects from './components/projects/Projects'
 import Contact from './components/contact/Contact'
+import Footer from './components/footer/Footer'
 
 function App() {
 
@@ -25,14 +26,13 @@ function App() {
       />
       <Navbar />
       <div className="App">
-
         <Hero />
         <Endorsment />
         <About />
         <Projects />
         <Contact />
       </div>
-
+      <Footer />
     </>
   )
 }
