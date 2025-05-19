@@ -82,3 +82,14 @@
     
   }
 }
+
+.Navbar_Progress{
+  position: fixed;
+  top: 30px;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(to right, $Purple, $Light-purple); // pink to purple
+  width: 0%;
+  z-index: 9999;
+  transition: width 0.1s ease-out;
+}
