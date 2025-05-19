@@ -2,8 +2,6 @@
 
 .navbar{
   position: fixed;
-  //left: calc(12.5% + 30px);
-  //right: calc(12.5% + 30px);
   left: 0;
   right: 0;
   padding: 0 calc(12.5% + 30px);
@@ -11,9 +9,10 @@
   flex-direction: row;
   height: 30px;
   align-items: center;
-    user-select: none;
+  user-select: none;
   backdrop-filter: blur(10px);
   z-index: 100;
+
 
   &_logo{
     display: flex;
@@ -79,7 +78,7 @@
       }
 
     }
-    
+
   }
 }
 
