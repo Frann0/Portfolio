@@ -9,6 +9,7 @@ import Endorsment from './components/endorsments/Endorsments'
 import About from './components/about/About'
 import ProjectCard from './components/projectCard/ProjectCard'
 import Projects from './components/projects/Projects'
+import Contact from './components/contact/Contact'
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
         <Endorsment />
         <About />
         <Projects />
+        <Contact />
       </div>
 
     </>
