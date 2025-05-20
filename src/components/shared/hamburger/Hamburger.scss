@@ -1,0 +1,15 @@
+@import '../../../Shared.scss';
+
+.Hamburger{
+  width: 24px;
+  aspect-ratio: 1;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 2px;
+  overflow: hidden;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import './navbar.scss'
+import Hamburger from '../shared/hamburger/Hamburger';
+import Menu from '../shared/mobileMenu/MobileMenu';
 
 const Navbar = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const updateScrollProgress = () => {
@@ -31,6 +34,10 @@ const Navbar = () => {
     };
   }, []);
 
+  const openHamburger = (t: boolean) => {
+    setIsOpen(t);
+  }
+
   return (
     <>
       {!isMobile && (
@@ -41,13 +48,13 @@ const Navbar = () => {
               <p className="navbar_logo_text">Mike Hovedskov</p>
             </div>
             <div className="navbar_links">
-              <a href="#about" className="navbar_links_link">
+              <a href="#About" className="navbar_links_link">
                 About Me
               </a>
-              <a href="#projects" className="navbar_links_link">
+              <a href="#Projects" className="navbar_links_link">
                 Projects
               </a>
-              <a href="#contact" className="navbar_links_link">
+              <a href="#Contact" className="navbar_links_link">
                 Contact
               </a>
             </div>
@@ -60,7 +67,11 @@ const Navbar = () => {
             <div className="navbar_logo">
               <img src="icons/Planet.svg" className="navbar_logo_icon" alt="Logo" />
             </div>
+            <div className="navbar_hamburger">
+              <Hamburger isOpen={isOpen} onClick={(t) => openHamburger(t)} />
+            </div>
           </nav>
+          <Menu isOpen={isOpen} onClick={(open) => openHamburger(open)} />
         </>
       )}
 

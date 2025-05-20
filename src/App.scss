@@ -57,7 +57,7 @@
 
   .Blackhole{
     position:absolute;
-    top: 0;
+    top: -150px;
     aspect-ratio: 16/9;
     z-index: 1;
     min-width: 100vw;
@@ -125,11 +125,12 @@
 
   .Blackhole{
     position:absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: -100px;
     aspect-ratio: 16/9;
     z-index: 1;
-    width: 100%;
+    min-width: 100vw;
+    object-fit:cover;
+    object-position: center;
+    margin-left: 50px;
   }
 }

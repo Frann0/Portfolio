@@ -21,6 +21,8 @@
       align-items: center;
       cursor: pointer;
       height: 100%;
+      width: 100%;
+      justify-content:center;
 
       &:hover > &_icon{
         opacity: 1;
@@ -33,12 +35,20 @@
         opacity: 0.5;
         width: 24px;
         aspect-ratio: 1/1;
+        margin-left: calc(12px + 24px);
 
         &:hover{
           opacity: 1;
         }
       }
 
+    }
+
+    &_hamburger{
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      height: 100%;
     }
   }
 
@@ -111,18 +121,14 @@
       gap: 10px;
 
       &_link{
-        opacity: 0.5;
         transition: all 0.3s ease-in-out;
         text-transform: uppercase;
         color: $White;
         font-size: 14px;
         text-decoration: none;
         font-weight: 700;
-
-        &:hover{
-          opacity: 1;
-        }
-
+        width: 100%;
+        text-align: center;
       }
 
     }
