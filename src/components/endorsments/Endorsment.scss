@@ -21,12 +21,8 @@
 
   &_Company{
     filter: $Unsaturated;
-    transition: all 0.3s ease-in-out;
     height: 50px;
     aspect-ratio: auto;
 
-    &:hover{
-      filter: $Saturated;
-    }
   }
 }

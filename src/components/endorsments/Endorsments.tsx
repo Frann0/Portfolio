@@ -1,16 +1,65 @@
 import './Endorsment.scss'
+import { motion } from 'framer-motion'
+
+const containerVariants = {
+  hidden: {
+    opacity: 0
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: 'easeInOut',
+      when: 'beforeChildren',
+      staggerChildren: 0.2,
+    }
+  }
+};
+
+const childVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { duration: 0.5 }
+  },
+  focus: {
+    filter: 'saturate(1)',
+    transition: { duration: 0.3, ease: 'easeInOut' },
+  },
+  hover: {
+    filter: 'saturate(1)',
+    transition: { duration: 0.3, ease: 'easeInOut' },
+  }
+};
 
 const Endorsment = () => {
   return (
-    <div className='Endorsment'>
-      <img src="images/EUC.png" className="Endorsment_Company" alt="2Doit Logo" />
-      <img src="images/DanskScanning.png" className="Endorsment_Company" alt="2Doit Logo" />
-      <img src="images/2Doit.png" className="Endorsment_Company" alt="2Doit Logo" />
-      <img src="images/EliteIt.png" className="Endorsment_Company" alt="2Doit Logo" />
-      <img src="images/RegionalIT.png" className="Endorsment_Company" alt="2Doit Logo" />
-      <img src="images/Easyselfie.png" className="Endorsment_Company" alt="2Doit Logo" />
-    </div>
+    <motion.div
+      className='Endorsment'
+      variants={containerVariants}
+      initial="hidden"
+      animate="show"
+    >
+      {[
+        'EUC.png',
+        'DanskScanning.png',
+        '2Doit.png',
+        'EliteIt.png',
+        'RegionalIT.png',
+        'Easyselfie.png'
+      ].map((src, idx) => (
+        <motion.img
+          key={idx}
+          variants={childVariants}
+          src={`images/${src}`}
+          className="Endorsment_Company"
+          whileFocus='focus'
+          whileHover='hover'
+          alt={`${src.split('.')[0]} Logo`}
+        />
+      ))}
+    </motion.div>
   )
-}
+};
 
-export default Endorsment
+export default Endorsment;

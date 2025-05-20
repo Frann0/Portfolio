@@ -48,10 +48,15 @@
       align-items: center;
       gap: 10px;
 
+      &_Container{
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
       .Button{
         min-width: 0;
         width: 100%;
         max-width: 100%;
+      }
       }
     }
   }

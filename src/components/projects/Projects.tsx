@@ -1,7 +1,27 @@
 import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
 import type { ProjectCardProps } from "../../models/ProjectCard"
 import ProjectCard from "../projectCard/ProjectCard"
 import './Projects.scss'
+
+const containerVariants = {
+  hidden: { opacity: 0, y: -50 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: 'easeOut',
+      when: 'beforeChildren',
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const childVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
 
 const Projects = () => {
   const projects = [
@@ -68,15 +88,21 @@ const Projects = () => {
   }
 
   return (
-    <div className="Projects" id="Projects">
+    <motion.div className="Projects"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.1 }}
+      id="Projects">
+
       {transformProjects().map((project, index) => (
-        <div className="Projects_Card" key={index}>
+        <motion.div variants={childVariants} className="Projects_Card" key={index}>
           <ProjectCard ProjectCard={project.ProjectCard} key={index} />
           <div className="Projects_Card_Divider"></div>
-        </div>
+        </motion.div>
       ))
       }
-    </div>
+    </motion.div>
   )
 }
 
