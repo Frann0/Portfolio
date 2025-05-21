@@ -77,7 +77,7 @@ const Projects = () => {
   }, [])
 
   const transformProjects = () => {
-    return projects.map((project, index) => {
+    return projects.map((project) => {
       return {
         ProjectCard: {
           ...project.ProjectCard,

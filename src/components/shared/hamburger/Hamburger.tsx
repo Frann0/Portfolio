@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import './Hamburger.scss'
 
 export default function Hamburger({ isOpen, onClick }: { isOpen: boolean, onClick: (isOpen: boolean) => void }) {

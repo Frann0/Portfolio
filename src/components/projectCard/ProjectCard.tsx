@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import type { ProjectCardProps } from "../../models/ProjectCard"
 import Button from "../shared/button/Button"
 import './ProjectCard.scss'

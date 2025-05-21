@@ -1,4 +1,3 @@
-import { text } from "framer-motion/m"
 import Button from "../shared/button/Button"
 import './Contact.scss'
 import { motion } from "framer-motion"
